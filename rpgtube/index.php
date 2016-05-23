@@ -32,8 +32,8 @@ $_SESSION["user_id"] = 42;
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.php#home">HOME</a></li>
-		<li><a href="comingsoon.html">ABOUT RPGTUBE</a></li>
-        <li><a href="comingsoon.html">VIDEOS</a></li>
+		<li><a href="comingsoon.php">ABOUT RPGTUBE</a></li>
+        <li><a href="comingsoon.php">VIDEOS</a></li>
         
 		<?php
 		//Profile for session
@@ -54,7 +54,7 @@ $_SESSION["user_id"] = 42;
 		{
 		//Sing in or up
 		echo '
-		<li><a href="comingsoon.html">Sign Up</a></li>
+		<li><a href="comingsoon.php">Sign Up</a></li>
           <li class="divider-vertical"></li>
           <li class="dropdown">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
