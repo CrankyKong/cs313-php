@@ -45,7 +45,7 @@
 		{
 		//Sing in or up
 		echo '
-		<li><a href="comingsoon.php">Sign Up</a></li>
+		<li><a href="signup.php">Sign Up</a></li>
           <li class="divider-vertical"></li>
           <li class="dropdown">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
