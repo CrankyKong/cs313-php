@@ -36,11 +36,25 @@ $avatar = $row['name'];
 
 session_start();
 $stmt = $db->query("SELECT id from user WHERE username = '$userN'");
-
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $user_id = $row['id'];
 $_SESSION["user_id"] = $user_id;
 
+$stmt = $db->query("SELECT character_id from avatar where user_id = $user_id");
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+$avatar_id = $row['character_id'];
+$_SESSION["avatar_id"] = $avatar_id;
+
+$stmt = $db->prepare("INSERT INTO inventory(gold, avatar_id) VALUES (500, $avatar_id)");
+$stmt->execute();
+
+$stmt = $db->query("SELECT inv_id from inventory where avatar_id = $avatar_id");
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+$inv_id = $row['inv_id'];
+$_SESSION["inv_id"] = $inv_id;
+
+$stmt = $db->prepare("INSERT INTO items_in_inventory(item_id, inv_id) VALUES (1, $inv_id)");
+$stmt->execute();
 
 header("Location: index.php");
 die("Page should have been redirected");	
