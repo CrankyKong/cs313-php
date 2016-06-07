@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['user_id'])) {
-$_SESSION["user_id"] = 42;
+$_SESSION["user_id"] = 0;
 }
 
 
@@ -26,7 +26,7 @@ echo '<nav class="navbar navbar-default navbar-fixed-top">
         
 		
 		//Profile for session
-		if($_SESSION['user_id'] != 42){
+		if($_SESSION['user_id'] != 0){
 		echo '<li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
           <span class="caret"></span></a>

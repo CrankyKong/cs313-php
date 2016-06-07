@@ -6,6 +6,7 @@ $db = connectToDb();
 $user = htmlspecialchars($_POST['user']);
 $userN = htmlspecialchars($_POST['user']);
 $password = htmlspecialchars($_POST['password']);
+$password = password_hash($password, PASSWORD_DEFAULT);
 $avatar = htmlspecialchars($_POST['avatar']);
 		
 $query = 'INSERT INTO user(username, password) VALUES (:user, :password)';
