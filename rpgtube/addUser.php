@@ -6,13 +6,13 @@ $db = connectToDb();
 $user = htmlspecialchars($_POST['user']);
 $userN = htmlspecialchars($_POST['user']);
 $password = htmlspecialchars($_POST['password']);
-//$password = password_hash($password, PASSWORD_DEFAULT);
+$passwordHash = password_hash($password, PASSWORD_DEFAULT);
 $avatar = htmlspecialchars($_POST['avatar']);
 		
 $query = 'INSERT INTO user(username, password) VALUES (:user, :password)';
 $stmt = $db->prepare($query);
 $stmt->bindValue(':user', $user, PDO::PARAM_STR);
-$stmt->bindValue(':password', $password, PDO::PARAM_STR);
+$stmt->bindValue(':password', $passwordHash, PDO::PARAM_STR);
 $stmt->execute();
 //fetch for one row
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
