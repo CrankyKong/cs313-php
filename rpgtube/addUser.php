@@ -1,4 +1,5 @@
 <?php
+require("password.php");
 require("dbConnect.php");
 $db = connectToDb();
 
