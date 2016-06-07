@@ -56,15 +56,22 @@
     <div id="inventory" class="tab-pane fade">
 	  <h3>Inventory</h3>
 	  <?php
-      foreach ($db->query("SELECT i.name, attribute, inv.inv_id, gold from items_in_inventory iv
+      foreach ($db->query("SELECT i.name, attribute, inv.inv_id, i.picture from items_in_inventory iv
  join item i On i.item_id = iv.item_id
  join inventory inv on inv.inv_id = iv.inv_id
  join avatar av on inv.avatar_id = av.character_id
  where inv.inv_id = $inv_id") as $row)
 	  {
-		  echo '<li>Item name:' . $row[0] . '</li>';
-		  echo '<li>Item atrribute: ' . $row['attribute'] . '</li><br />';
-		  echo '<li>Gold Ammount: ' . $row['gold'] . '</li><br />';	  
+		  echo '<img src="' . $row['picture'] . '" class="img-thumbnail" alt="' . $row[0] .'" width="50" height="50">';
+		  echo '<li>Item name: ' . $row[0] . '</li>';
+		  echo '<li>Item atrribute: ' . $row['attribute'] . '</li><br />';	  
+	  }?>
+	 <img src="moneybag.png" class="img-thumbnail" alt="moneybag" width="50" height="50">
+	   <?php
+      foreach ($db->query("SELECT gold from inventory
+ where inv_id = $inv_id") as $row)
+	  {
+		  echo 'Gold Amount: ' . $row['gold'] . '<br />';	  
 	  }?>
     </div>
     <div id="friends" class="tab-pane fade">
